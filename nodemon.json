@@ -1,0 +1,10 @@
+{
+  "verbose": false,
+  "watch": [ "app.ts" ],
+  "ignore": ["*.jpe?g", "*.json", "*.html"],
+  "ext": "ts",
+  "execMap": {
+    "ts": "ts-node"
+  },
+  "delay": "3000"
+}

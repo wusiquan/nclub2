@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="/css/semantic.min.css">
+  <link rel="stylesshet" href="/css/style.css">
+</head>
+
+<body>
+
+  <% include header %>
+
+  <div class="container">
+    <div class="ui form segment" style="width:400px; margin:60px auto">
+      <form method="post">
+        <div class="two fields">
+          <div class="field required">
+            <label>用户名</label>
+            <input placeholder="用户名" type="text" name="name">
+          </div>
+          <div class="field required">
+            <label>性别</label>
+
+            <div class="ui fluid selection dropdown">
+              <input type="hidden" name="gender">
+              <i class="dropdown icon"></i>
+              <div class="default text">选择性别</div>
+              <div class="menu">
+                <div class="item" data-value="1">男</div>
+                <div class="item" data-value="0">女</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field required">
+            <label>密码</label>
+            <input placeholder="密码" type="password" name="password">
+          </div>
+          <div class="field required">
+            <label>重复密码</label>
+            <input placeholder="重复密码" type="password" name="re_password">
+          </div>
+        </div>
+        <div class="field required">
+          <label>邮箱</label>
+          <input placeholder="邮箱" type="email" name="email">
+        </div>
+        <div class="field">
+          <label>个人签名</label>
+          <input type="text" placeholder="限制在50字以内" name="signature">
+        </div>
+        <input type="submit" class="ui button fluid" value="注册">
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script src="/js/semantic.min.js"></script>
+  <script>
+    $('.ui.dropdown').dropdown()
+
+    $('.ui.form')
+      .form({
+        fields: {
+          name: 'empty',
+          gender: 'empty',
+          password: ['minLength[6]', 'empty'],
+          re_password: ['minLength[6]', 'empty'],
+          email: 'email'
+        }
+      })
+    
+    
+  </script>
+</body>
+
+</html>
