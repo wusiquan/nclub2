@@ -2,7 +2,7 @@
   "name": "n-club2",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {
     "start": "NODE_ENV=local nodemon app",
     "dev2": "NODE_ENV=local DEBUG=* nodemon app",
