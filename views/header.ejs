@@ -1,4 +1,4 @@
-<div class="ui fixed menu navbar">
+<div class="ui menu navbar">
   <div class="container">
     <a href="/" class="item">名称</a>
     <div class="item">描述</div>
@@ -11,3 +11,14 @@
     </div>
   </div>
 </div>
+
+<% if (ctx.flash && ctx.flash.success) { %>
+  <div class="flash">
+    <div class="ui green message"><i class="close icon"></i><%= ctx.flash.success %></div>
+  </div>
+<% } %>
+<% if (ctx.flash && ctx.flash.error) { %>
+  <div class="flash">
+    <div class="ui red message"><i class="close icon"></i><%= ctx.flash.error %></div>
+  </div>
+<% } %>

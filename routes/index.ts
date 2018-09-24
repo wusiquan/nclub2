@@ -5,7 +5,8 @@ const router = new Router()
 
 router.get('/', async ctx => {
   await ctx.render('index', {
-    title: '首页'
+    title: '首页',
+    ctx: ctx
   })
 })
 

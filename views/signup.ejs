@@ -17,7 +17,7 @@
   <% include header %>
 
   <div class="container">
-    <div class="ui form segment" style="width:400px; margin:60px auto">
+    <div class="ui form segment" style="width:400px; margin:40px auto">
       <form method="post">
         <div class="two fields">
           <div class="field required">
@@ -72,12 +72,10 @@
           name: 'empty',
           gender: 'empty',
           password: ['minLength[6]', 'empty'],
-          re_password: ['minLength[6]', 'empty'],
+          re_password: 'match[password]',
           email: 'email'
         }
       })
-    
-    
   </script>
 </body>
 

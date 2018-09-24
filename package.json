@@ -1,7 +1,7 @@
 {
   "name": "n-club2",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "the koa2 version of N-club",
   "main": "app.ts",
   "scripts": {
     "start": "NODE_ENV=local nodemon app.ts",
@@ -12,24 +12,37 @@
   "engines": {
     "node": "8.12.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wusiquan/nclub2.git"
+  },
   "license": "MIT",
   "dependencies": {
     "co-ejs": "^1.5.2",
     "koa": "^2.5.3",
+    "koa-bodyparser": "^4.2.1",
     "koa-ejs": "^4.1.2",
+    "koa-flash": "^1.0.0",
+    "koa-generic-session": "^2.0.1",
     "koa-logger": "^3.2.0",
+    "koa-redis": "^3.1.2",
     "koa-router": "^7.4.0",
     "koa-static-cache": "^5.1.2",
     "koa-views": "^6.1.4",
+    "mongoose": "^5.2.17",
     "typescript": "^3.0.3"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4",
-    "ts-node": "^7.0.1",
     "@types/koa": "^2.0.46",
+    "@types/koa-bodyparser": "^5.0.1",
+    "@types/koa-generic-session": "^1.0.2",
     "@types/koa-logger": "^3.1.0",
+    "@types/koa-redis": "^3.0.2",
     "@types/koa-router": "^7.0.32",
     "@types/koa-static-cache": "^5.1.0",
-    "@types/koa-views": "^2.0.3"
+    "@types/koa-views": "^2.0.3",
+    "@types/mongoose": "^5.2.17",
+    "nodemon": "^1.18.4",
+    "ts-node": "^7.0.1"
   }
 }
