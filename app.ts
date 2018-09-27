@@ -6,7 +6,7 @@ import * as bodyparser from 'koa-bodyparser'
 import * as staticCache from 'koa-static-cache'
 import * as session from 'koa-generic-session'
 import * as redisStore from 'koa-redis'
-import * as flash from 'koa-flash'
+import flash from './modules/flash'
 import router from './routes'
 import configs from './configs/default'
 

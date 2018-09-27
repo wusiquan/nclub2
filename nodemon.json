@@ -4,7 +4,7 @@
   "ignore": ["*.jpe?g", "*.json", "*.html"],
   "ext": "ts",
   "execMap": {
-    "ts": "ts-node"
+    "ts": "ts-node --project tsconfig.json"
   },
   "delay": "2500"
 }

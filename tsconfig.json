@@ -11,8 +11,12 @@
     "paths": {
       "*": [
         "node_modules/*",
-        "./typings/*"
+        "src/types/*"
       ]
     }
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "bak"
+  ]
 }
