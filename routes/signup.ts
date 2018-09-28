@@ -1,5 +1,6 @@
 import * as Koa from 'koa'
 import Models from '../lib/core'
+import { IFlashContext } from '../types/flash'
 
 const $User = Models.$User
 
@@ -15,7 +16,7 @@ interface IRegisterBody {
   email: string
 }
 
-export const post = async function(ctx: Koa.Context) {
+export const post = async function(ctx: IFlashContext) {
   let data = <IRegisterBody>ctx.request.body
 
   let userExist = await $User.getUserByName(data.name)

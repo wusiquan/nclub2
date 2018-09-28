@@ -1,6 +1,7 @@
 import * as Router from 'koa-router'
 import * as signup from './signup'
 import * as signin from './signin'
+import * as user from './user'
 
 const router = new Router()
 
@@ -12,8 +13,9 @@ router.get('/', async ctx => {
 })
 
 router.get('/signup', signup.get)
-router.post('/signup', signup.post)
+router.post('/signup', <any>signup.post)
 router.get('/signin', signin.get)
-router.post('/signip', signin.post)
+router.post('/signin', <any>signin.post)
+router.get('/user/:name', user.get)
 
 export default router
