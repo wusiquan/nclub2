@@ -3,12 +3,12 @@
     <div class="content">
       <div class="userCard">
         <div class="info">
-          <p>userInfo.name</p>
-          <p class="meta">userInfo.gender</p>
+          <p><%= userInfo.name %></p>
+          <p class="meta"><%= userInfo.gender ? '男' : '女' %></p>
         </div>
       </div>
       <div class="description">
-        userInfo.signature
+        <%= userInfo.signature %>
       </div>
     </div>
     <% if (ctx.session.user) { %>

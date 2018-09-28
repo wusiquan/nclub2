@@ -20,7 +20,7 @@ export const post = async function(ctx: IFlashContext) {
   let data = <IRequestBody>ctx.request.body
 
   let userInfo: any = await $User.getUserByName(data.name)
-  console.log(data)
+  
   if (!userInfo || (userInfo.password !== data.password)) {
     ctx.flash = { error: '用户名或密码错误!' }
     return ctx.redirect('back')

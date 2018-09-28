@@ -3,7 +3,6 @@ import Models from '../lib/core'
 
 const $User = Models.$User
 
-
 const ESC: { [k:string] : string } = {
   '<': '&lt;',
   '>': '&gt;',
@@ -20,11 +19,14 @@ export function escape(s: string) {
 
 export let get = async function(ctx: Koa.Context) {
   let name = escape(ctx.params.name)
-  
+  let userInfo = await $User.getUserByName(name)
+
+  console.log(userInfo)
+
   await ctx.render('user', {
     title: '用户页',
     name: name,
     ctx: ctx,
-    userInfo: $User.getUserByName(name)
+    userInfo
   })
 }

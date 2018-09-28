@@ -1,19 +1,25 @@
 import * as path from 'path'
 import * as Koa from 'koa'
-import * as views from 'koa-views'
 import * as logger from 'koa-logger'
 import * as bodyparser from 'koa-bodyparser'
 import * as staticCache from 'koa-static-cache'
+import * as views from 'koa-views'
+import * as errorHandler from 'koa-better-error-handler'
+import * as koa404Handler from 'koa-404-handler'
 import * as session from 'koa-generic-session'
 import * as redisStore from 'koa-redis'
 import flash from './modules/flash'
 import router from './routes'
 import configs from './configs/default'
 
-// const bodyparser = require('koa-bodyparser')
-// const errorhandler = require('koa-errorhandler')
-
 const app = new Koa()
+
+app.context.onerror = errorHandler
+
+let appContext = <any>app.context
+appContext.api = true
+
+app.use(koa404Handler)
 
 app.use(bodyparser())
 
@@ -26,7 +32,9 @@ app.use(staticCache(path.join(__dirname, 'public'), {
 }))
 
 // 模板目录
-app.use(views(__dirname + '/views', { extension: 'ejs' }))
+app.use(views(__dirname + '/views', { 
+  extension: 'ejs'
+}))
 
 app.keys = ['$w_s_q$', 'iloveyou']
 app.use(session({
