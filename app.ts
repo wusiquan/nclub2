@@ -31,10 +31,14 @@ app.use(staticCache(path.join(__dirname, 'public'), {
   maxAge: 365 * 86400
 }))
 
+// 设置的值可以应用到模板中，koa-ejs会自动merge state 参数
+appContext.state = Object.assign(appContext.state || {}, { 'lover': 'xiaoyaxuan' })
+
 // 模板目录
-app.use(views(__dirname + '/views', { 
+app.use(views(__dirname + '/views', {
   extension: 'ejs'
 }))
+
 
 app.keys = ['$w_s_q$', 'iloveyou']
 app.use(session({

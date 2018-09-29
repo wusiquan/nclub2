@@ -21,7 +21,7 @@ export let get = async function(ctx: Koa.Context) {
   let name = escape(ctx.params.name)
   let userInfo = await $User.getUserByName(name)
 
-  console.log(userInfo)
+  ctx.state = Object.assign(ctx.state, { abcd: 'abcdefg' })
 
   await ctx.render('user', {
     title: '用户页',

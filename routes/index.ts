@@ -1,3 +1,4 @@
+import * as Koa from 'koa'
 import * as Router from 'koa-router'
 import * as signup from './signup'
 import * as signin from './signin'
@@ -6,25 +7,56 @@ import * as user from './user'
 
 const router = new Router()
 
-router.get('/', async ctx => {
-  await ctx.render('index', {
-    title: '首页',
-    ctx: ctx
-  })
+const appRoutes = [
+  { 
+    path: '/',
+    method: 'get',
+    action: async function(ctx: Koa.Context) {
+      await ctx.render('index', {
+        title: '首页',
+        ctx: ctx
+      })
+    }
+  },
+  // 注册
+  { 
+    path: '/signup',
+    method: 'get',
+    action: signup.get
+  },
+  {
+    path: '/signup',
+    method: 'post',
+    action: signup.post
+  },
+  // 登录
+  {
+    path: '/signin',
+    method: 'get',
+    action: signin.get
+  },
+  {
+    path: '/signin',
+    method: 'post',
+    action: signin.post
+  },
+  // 登出
+  {
+    path: '/logout',
+    method: 'get',
+    action: logout
+  },
+  // 用户页面
+  {
+    path: '/user/:name',
+    method: 'get',
+    action: user.get
+  }
+]
+
+appRoutes.forEach(route => {
+  let rou = <any>router
+  rou[route.method](route.path, route.action)
 })
-
-// 注册
-router.get('/signup', signup.get)
-router.post('/signup', <any>signup.post)
-
-// 登录
-router.get('/signin', signin.get)
-router.post('/signin', <any>signin.post)
-
-// 
-router.get('logout', logout)
-
-// 用户页面
-router.get('/user/:name', user.get)
 
 export default router
