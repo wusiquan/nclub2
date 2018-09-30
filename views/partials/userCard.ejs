@@ -2,6 +2,7 @@
   <div class="card">
     <div class="content">
       <div class="userCard">
+        <img src="<%= ejsUtil.githubAvatar(userInfo.name) %>">
         <div class="info">
           <p><%= userInfo.name %></p>
           <p class="meta"><%= userInfo.gender ? '男' : '女' %></p>

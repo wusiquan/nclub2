@@ -1,8 +1,8 @@
 import * as mongoose from 'mongoose'
 
-var Schema = mongoose.Schema
+const Schema = mongoose.Schema
 
-var UserSchema = new Schema({
+const UserSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true},
   password: { type: String, required: true },

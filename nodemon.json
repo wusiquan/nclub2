@@ -1,4 +1,5 @@
 {
+  "restartable": false,
   "verbose": false,
   "watch": [ "app.ts", "routes/*.ts", "lib/*.ts", "models/*.ts", "configs/*.ts" ],
   "ignore": ["*.jpe?g", "*.json", "*.html"],
@@ -6,5 +7,5 @@
   "execMap": {
     "ts": "ts-node --project tsconfig.json"
   },
-  "delay": "2500"
+  "delay": "1500"
 }

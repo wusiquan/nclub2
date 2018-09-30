@@ -18,7 +18,10 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@types/markdown-it": "0.0.5",
+    "@types/moment": "^2.13.0",
     "co-ejs": "^1.5.2",
+    "dayjs": "^1.7.7",
     "gravatar": "^1.6.0",
     "koa": "^2.5.3",
     "koa-404-handler": "0.0.2",
@@ -31,10 +34,13 @@
     "koa-router": "^7.4.0",
     "koa-static-cache": "^5.1.2",
     "koa-views": "^6.1.4",
+    "markdown-it": "^8.4.2",
+    "moment": "^2.22.2",
     "mongoose": "^5.2.17",
     "typescript": "^3.1.1"
   },
   "devDependencies": {
+    "@types/gravatar": "^1.4.28",
     "@types/koa": "^2.0.46",
     "@types/koa-bodyparser": "^5.0.1",
     "@types/koa-generic-session": "^1.0.2",
