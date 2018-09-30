@@ -5,7 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "start": "NODE_ENV=local nodemon app.ts",
-    "dev2": "NODE_ENV=local DEBUG=* nodemon app.ts",
+    "dev": "NODE_ENV=local DEBUG=nclub2 nodemon app.ts",
     "help": "nodemon -h"
   },
   "author": "wusiquan",
@@ -40,6 +40,7 @@
     "typescript": "^3.1.1"
   },
   "devDependencies": {
+    "@types/debug": "0.0.30",
     "@types/gravatar": "^1.4.28",
     "@types/koa": "^2.0.46",
     "@types/koa-bodyparser": "^5.0.1",

@@ -2,7 +2,7 @@
   <div class="card">
     <div class="content">
       <div class="userCard">
-        <img src="<%= ejsUtil.githubAvatar(userInfo.name) %>">
+        <img src="<%= ctx.githubAvatar(userInfo.name) %>">
         <div class="info">
           <p><%= userInfo.name %></p>
           <p class="meta"><%= userInfo.gender ? '男' : '女' %></p>
@@ -14,7 +14,7 @@
     </div>
     <% if (ctx.session.user) { %>
       <div class="extra content">
-        <a href="/user/<%= userInfo.name %>" class=""><i class="home icon"></i>个人主页</a>
+        <a href="/user/<%= userInfo.name %>" class="left floated"><i class="home icon"></i>个人主页</a>
         <a href="#" class="right floated"><i class="setting icon"></i>设置</a>
       </div>
     <% } else { %>

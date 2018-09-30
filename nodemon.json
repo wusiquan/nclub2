@@ -1,5 +1,4 @@
 {
-  "restartable": false,
   "verbose": false,
   "watch": [ "app.ts", "routes/*.ts", "lib/*.ts", "models/*.ts", "configs/*.ts" ],
   "ignore": ["*.jpe?g", "*.json", "*.html"],

@@ -4,6 +4,7 @@ import * as signup from './signup'
 import * as signin from './signin'
 import logout from './logout'
 import * as user from './user'
+import * as create from './create'
 
 const router = new Router()
 
@@ -51,6 +52,12 @@ const appRoutes = [
     path: '/user/:name',
     method: 'get',
     action: user.get
+  },
+  // 创建话题页 
+  {
+    path: '/create',
+    method: 'get',
+    action: create.get
   }
 ]
 

@@ -6,7 +6,7 @@ let $User = Models.$User
 
 export const get = async function(ctx: Koa.Context) {
   await ctx.render('signin', {
-    title: '登录',
+    title: '登录页',
     ctx: ctx
   })
 }
