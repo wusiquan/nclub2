@@ -6,6 +6,7 @@ import logout from './logout'
 import * as user from './user'
 import * as create from './create'
 import * as topic from './topic'
+import home from './home'
 
 const router = new Router()
 
@@ -13,12 +14,7 @@ const appRoutes = [
   { 
     path: '/',
     method: 'get',
-    action: async function(ctx: Koa.Context) {
-      await ctx.render('index', {
-        title: '首页',
-        ctx: ctx
-      })
-    }
+    action: home
   },
   // 注册
   { 

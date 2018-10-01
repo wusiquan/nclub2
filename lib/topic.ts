@@ -22,13 +22,20 @@ export const getTopicsByName = (name: string) => {
 }
 
 // 通过标签和页码获取10个话题
-// export const getTopicsByTab = (tab: string, pageNum: number) => {
-//   let query: any = {}
-//   if (tab) { query.tab = tab; }
-//   return Topic.find(query).skip((pageNum - 1) * 10).sort('-updated_at').limit(10).select('-content').exec()
-// }
+export const getTopicsByTab = (tab: string, pageNum: number) => {
+  let query: any = {}
+  if (tab) { query.tab = tab }
+  return Topic.find(query).skip((pageNum - 1) * 10).sort('-updated_at').limit(10).select('-content').exec()
+}
 
 // 通过id增加一个话题的评论数
 export const incCommentById = async(id: Schema.Types.ObjectId) => {
   return Topic.findByIdAndUpdate(id, {$inc: { comment: 1 }}).exec()
+}
+
+// 获取不同标签的话题数
+export const getTopicsCount = async(tab: string) => {
+  let query: any = {}
+  if (tab) { query.tab = tab }
+  return Topic.countDocuments(query).exec()
 }

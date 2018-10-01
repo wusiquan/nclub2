@@ -1,0 +1,6 @@
+<div class="ui top attached tabular menu">
+    <a href="/" class="item <%= (!ctx.query.tab || (ctx.query.tab == ctx.$app.tabs[0])) ? 'active' : '' %>"><%= ctx.$app.tabs[0] %></a>
+    <% ctx.$app.tabs.slice(1).forEach(function (tab) { %>
+      <a href="/?tab=<%= tab %>" class="item <%= (ctx.query.tab == tab) ? 'active' : '' %>"><%= tab %></a>
+    <% }) %>
+  </div>

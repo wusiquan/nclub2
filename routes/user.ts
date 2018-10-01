@@ -1,4 +1,4 @@
-import * as Koa from 'koa'
+// import * as Koa from 'koa'
 import Models from '../lib/core'
 
 const $User = Models.$User
