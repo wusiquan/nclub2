@@ -10,6 +10,16 @@ export const getTopicById = (id: string) => {
   return Topic.findByIdAndUpdate(id, {$inc: {pv: 1}}).exec()
 }
 
+// 获取5条最新未评论的话题
+export const getNoReplyTopics = () => {
+  return Topic.find({ comment: 0 }).sort('-updated_at').limit(5).select('title').exec()
+}
+
+// 获取用户所有话题
+export const getTopicsByName = (name: string) => {
+  return Topic.find({ 'user.name': name }).sort('-updated_at').exec()
+}
+
 // 通过标签和页码获取10个话题
 // export const getTopicsByTab = (tab: string, pageNum: number) => {
 //   let query: any = {}

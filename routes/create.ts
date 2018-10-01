@@ -11,10 +11,13 @@ export const get = async function(ctx: Koa.Context) {
   if (name) {
     userInfo = await $User.getUserByName(name)
   }
+  let noReplyTopics = await $Topic.getNoReplyTopics()
+
   await ctx.render('create', {
     title: '发表话题页',
     ctx: ctx,
-    userInfo: userInfo
+    userInfo: userInfo,
+    noReplyTopics
   })
 }
 
