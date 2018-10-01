@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
   <% include header %>
 
   <div class="container">
@@ -54,7 +53,6 @@
       </div>
 
       <div class="right floated left aligned four wide column">
-        <% var name = ctx.session.user.name; %>
         <% include partials/userCard %>
       </div>
     </div>
@@ -63,6 +61,9 @@
   
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/semantic-2.4.0.min.js"></script>
+  <script type="text/javascript">
+    $('.ui.dropdown').dropdown();
+  </script>
+  
 </body>
-
 </html>

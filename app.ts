@@ -41,7 +41,6 @@ app.use(staticCache(path.join(__dirname, 'public'), {
   maxAge: 365 * 86400
 }))
 
-
 // 设置的值可以应用到模板中，koa-ejs会自动merge state 参数(虽然这里不是koa-ejs...)
 let ejsHelper = {
   fromNow(data: any) {
@@ -64,11 +63,12 @@ app.use(views(__dirname + '/views', {
 }))
 
 app.keys = ['$w_s_q$', 'iloveyou']
+const redistConfig = configs.redis
 app.use(session({
   store: redisStore({
-    host: 'redis-16420.c15.us-east-1-2.ec2.cloud.redislabs.com',
-    port: 16420,
-    password: '24yI12cNDD7oHgQ7d0vnQYZtvRU7YkpU'
+    host: redistConfig.host,
+    port: redistConfig.port,
+    password: redistConfig.password
   })
 }))
 app.use(flash())

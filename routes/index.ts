@@ -58,6 +58,11 @@ const appRoutes = [
     path: '/create',
     method: 'get',
     action: create.get
+  },
+  {
+    path: '/create',
+    method: 'post',
+    action: create.post
   }
 ]
 
