@@ -1,6 +1,6 @@
 <div class="ui large menu">
-  <a href="/" class="item">名称</a>
-  <div class="item">描述</div>
+  <a href="/" class="item"><%= $app.name %></a>
+  <div class="item"><%= $app.descripion %></div>
   <div class="right menu">
     <% if (ctx.session.user) { %>
       <a href="/logout" class="item">登出</a>
