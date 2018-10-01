@@ -21,7 +21,6 @@ export const get = async function(ctx: Koa.Context) {
 export const post = async function(ctx: any) {
   let data: any = ctx.request.body
   data.user = ctx.session.user
-
   let topic = await $Topic.addTopic(data)
   
   ctx.flash = { success: '发布成功!' }

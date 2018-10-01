@@ -5,6 +5,7 @@ import * as signin from './signin'
 import logout from './logout'
 import * as user from './user'
 import * as create from './create'
+import * as topic from './topic'
 
 const router = new Router()
 
@@ -41,19 +42,19 @@ const appRoutes = [
     method: 'post',
     action: signin.post
   },
-  // 登出
+  // 登出页
   {
     path: '/logout',
     method: 'get',
     action: logout
   },
-  // 用户页面
+  // 用户页
   {
     path: '/user/:name',
     method: 'get',
     action: user.get
   },
-  // 创建话题页 
+  // 创建话题页
   {
     path: '/create',
     method: 'get',
@@ -63,6 +64,12 @@ const appRoutes = [
     path: '/create',
     method: 'post',
     action: create.post
+  },
+  // 话题页
+  {
+    path: '/topic/:id',
+    method: 'get',
+    action: topic.get
   }
 ]
 

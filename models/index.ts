@@ -2,6 +2,8 @@ import * as mongoose from 'mongoose'
 import config from '../configs/default'
 
 mongoose.set('useCreateIndex', true)
+// DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+mongoose.set('useFindAndModify', false)
 mongoose.connect(config.mongodb.url, {
   useNewUrlParser: true
 }, err => {

@@ -15,12 +15,12 @@
     <% if (ctx.session.user) { %>
       <div class="extra content">
         <a href="/user/<%= userInfo.name %>" class="left floated"><i class="home icon"></i>个人主页</a>
-        <a href="#" class="right floated"><i class="setting icon"></i>设置</a>
+        <span class="right floated"><i class="setting icon"></i>设置</span>
       </div>
     <% } else { %>
       <div class="extra content">
-        <a class=""><i class="send icon"></i>私信</a>
-        <a class="right floated"><i class="plus icon"></i>加好友</a>
+        <span class=""><i class="send icon"></i>私信</span>
+        <span class="right floated"><i class="plus icon"></i>加好友</span>
       </div>
     <% } %>
   </div>

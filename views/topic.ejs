@@ -4,28 +4,38 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= title %></title>
+    <title>话题页</title>
     <link rel="stylesheet" href="/css/semantic.min.css">
     <link rel="stylesshet" href="/css/style.css">
   </head>
   <body>
     
     <% include header %>
-    
+
     <div class="container">
       <div class="ui two column centered grid" style="width: 100%; margin-left: 0;">
-        <div class="right floated aligned four wide column">
-          <% include partials/userCard %>
-          <% if (ctx.session.user) { %>
-            <% include partials/createCard %>
-          <% } %>
-          <% include partials/linkCard %>
-        </div>
-
         <div class="left floated twelve wide column">
-          <% include partials/list %>
+        <div class="ui segment">
+          <h2 style="margin-top:0">
+            <%= topic.title %>
+          </h2>
+          <div class="topic">
+            发布于<%= topic.created_at %> • 
+            作者 <%= topic.user.name %> • 
+            <%= topic.pv %> 次浏览 • 
+            <%= topic.comment %> 个回复 • 
+            <%= topic.tab %>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <%- topic.content %>
+          </div>
         </div>
+      </div>
 
+        <div class="right floated left aligned four wide column">
+          <% include partials/userCard %>
+        </div>
       </div>
     </div>
     
