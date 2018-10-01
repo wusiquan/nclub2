@@ -10,7 +10,7 @@ export default {
     password: '24yI12cNDD7oHgQ7d0vnQYZtvRU7YkpU'
   },
   $app: {
-    "name": "Node.js-club",
+    "name": "Node.js-club2",
     "description": "一个分享与发现的地方",
     "tabs": ["全部", "问答", "分享", "吐槽", "招聘"]
   }

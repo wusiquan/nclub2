@@ -1,6 +1,6 @@
 <div class="ui large menu">
-  <a href="/" class="item"><%= $app.name %></a>
-  <div class="item"><%= $app.descripion %></div>
+  <a href="/" class="item"><%= ctx.$app.name %></a>
+  <div class="item"><%= ctx.$app.description %></div>
   <div class="right menu">
     <% if (ctx.session.user) { %>
       <a href="/logout" class="item">登出</a>
@@ -21,9 +21,3 @@
     <div class="ui red message"><i class="close icon"></i><%= ctx.flash.error %></div>
   </div>
 <% } %>
-
-<script type="text/javascript">
-  $('.message .close').on('click', function() {
-    $(this).closest('.message').fadeOut();
-  });
-</script>
