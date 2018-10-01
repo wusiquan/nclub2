@@ -5,7 +5,7 @@
       <% comments.forEach(function (comment) { %>
         <div class="comment">
           <a class="avatar" href="/user/<%= comment.user.name %>">
-            <img src="<%= comment.user.email %>">
+            <img src="<%= ctx.githubAvatar(comment.user.name) %>">
           </a>
           <div class="content">
             <a class="author" href="/user/<%= comment.user.name %>">
@@ -13,7 +13,7 @@
             </a>
             <div class="metadata">
               <span class="date">
-                <%= comment.updated_at %>
+                <%= ctx.fromNow(comment.updated_at) %>
               </span>
             </div>
             <div class="text">

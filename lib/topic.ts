@@ -8,7 +8,7 @@ export const addTopic = (data: any) => {
 
 // 通过id获取一个话题,并增加pv 1
 export const getTopicById = (id: Schema.Types.ObjectId) => {
-  return Topic.findByIdAndUpdate(id, {$inc: {pv: 1}}).exec()
+  return Topic.findByIdAndUpdate(id, {$inc: { pv: 1 }}).exec()
 }
 
 // 获取5条最新未评论的话题
@@ -29,6 +29,6 @@ export const getTopicsByName = (name: string) => {
 // }
 
 // 通过id增加一个话题的评论数
-// exports.incCommentById = async(id: number) => {
-//   return Topic.findByIdAndUpdate(id, {$inc: { comment: 1 }}).exec()
-// }
+export const incCommentById = async(id: Schema.Types.ObjectId) => {
+  return Topic.findByIdAndUpdate(id, {$inc: { comment: 1 }}).exec()
+}

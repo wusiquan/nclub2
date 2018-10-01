@@ -70,6 +70,11 @@ const appRoutes = [
     path: '/topic/:id',
     method: 'get',
     action: topic.get
+  },
+  {
+    path: '/topic/:id',
+    method: 'post',
+    action: topic.post
   }
 ]
 

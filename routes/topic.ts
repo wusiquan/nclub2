@@ -23,3 +23,15 @@ export const get = async(ctx: any) => {
     comments
   })
 }
+
+export const post = async(ctx: any) => {
+  let id: Schema.Types.ObjectId = ctx.params.id
+  let data = ctx.request.body
+  data.user = ctx.session.user
+  
+  await $Comment.addComment(data)
+  await $Topic.incCommentById(id)
+
+  ctx.flash = { success: '回复成功!' }
+  ctx.redirect(ctx.query.redirect || 'back')
+}
