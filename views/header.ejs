@@ -2,11 +2,12 @@
   <a href="/" class="item">名称</a>
   <div class="item">描述</div>
   <div class="right menu">
-
-    <!-- <a href="/logout" class="item">登出</a> -->
-
-    <a href="/signup" class="item">注册</a>
-    <a href="/signin" class="item">登录</a>
+    <% if (ctx.session.user) { %>
+      <a href="/logout" class="item">登出</a>
+    <% } else { %>
+      <a href="/signup" class="item">注册</a>
+      <a href="/signin" class="item">登录</a>
+    <% } %>
   </div>
 </div>
 
@@ -20,3 +21,9 @@
     <div class="ui red message"><i class="close icon"></i><%= ctx.flash.error %></div>
   </div>
 <% } %>
+
+<script type="text/javascript">
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').fadeOut();
+  });
+</script>
