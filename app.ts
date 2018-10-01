@@ -42,6 +42,7 @@ app.use(staticCache(path.join(__dirname, 'public'), {
 }))
 
 // 设置的值可以应用到模板中，koa-ejs会自动merge state 参数(虽然这里不是koa-ejs...)
+moment.locale(configs.$app.locale)
 const md = markdownIt({ html: true })
 let ejsHelper = {
   fromNow(data: any) {

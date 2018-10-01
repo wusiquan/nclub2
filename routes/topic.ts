@@ -7,11 +7,13 @@ const $User = Models.$User
 export const get = async(ctx: any) => {
   let id: string = ctx.params.id
   const user = ctx.session.user
+  let noReplyTopics = await $Topic.getNoReplyTopics()
   
   await ctx.render('topic', {
     topic: await $Topic.getTopicById(id),
     userInfo: await $User.getUserByName(user.name),
-    ctx: ctx
+    ctx: ctx,
+    noReplyTopics
     // comments: $Comment.getCommentsByTopicId(id)
   })
 }

@@ -12,6 +12,7 @@ export default {
   $app: {
     "name": "Node.js-club2",
     "description": "一个分享与发现的地方",
+    "locale": "zh-cn",
     "tabs": ["全部", "问答", "分享", "吐槽", "招聘"]
   }
 }
