@@ -1,3 +1,4 @@
+import { Schema } from 'mongoose'
 import { Topic } from '../models'
 
 // 新建一个话题
@@ -6,7 +7,7 @@ export const addTopic = (data: any) => {
 }
 
 // 通过id获取一个话题,并增加pv 1
-export const getTopicById = (id: string) => {
+export const getTopicById = (id: Schema.Types.ObjectId) => {
   return Topic.findByIdAndUpdate(id, {$inc: {pv: 1}}).exec()
 }
 

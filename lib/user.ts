@@ -12,5 +12,5 @@ export const addUser = (data: any) => {
 
 // 通过name获取用户
 export const getUserByName = (name: string) => {
-  return User.findOne({name: name}).exec()
+  return User.findOne({ name: name }).exec()
 }

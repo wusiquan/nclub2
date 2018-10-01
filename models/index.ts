@@ -15,3 +15,4 @@ mongoose.connect(config.mongodb.url, {
 
 export { default as User } from './user'
 export { default as Topic } from './topic'
+export { default as Comment } from './comment'
