@@ -16,11 +16,11 @@
       <div class="ui two column centered grid" style="width: 100%; margin-left: 0;">
         <div class="left floated twelve wide column">
         <div class="ui segment">
-          <h2 style="margin-top:0">
+          <h2 style="margin-top:0;">
             <%= topic.title %>
           </h2>
           <div class="topic">
-            发布于<%= topic.created_at %> • 
+            发布于<%= ctx.fromNow(topic.created_at) %> • 
             作者 <%= topic.user.name %> • 
             <%= topic.pv %> 次浏览 • 
             <%= topic.comment %> 个回复 • 
@@ -28,7 +28,7 @@
           </div>
           <div class="ui divider"></div>
           <div class="content">
-            <%- topic.content %>
+            <%- ctx.markdown(topic.content) %>
           </div>
         </div>
       </div>

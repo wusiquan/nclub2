@@ -14,7 +14,7 @@ import * as redisStore from 'koa-redis'
 
 // import * as gravatar from 'gravatar'
 import * as moment from 'moment'
-// import * as md from 'markdown-it'
+import * as markdownIt from 'markdown-it'
 
 import flash from './modules/flash'
 import router from './routes'
@@ -42,6 +42,7 @@ app.use(staticCache(path.join(__dirname, 'public'), {
 }))
 
 // 设置的值可以应用到模板中，koa-ejs会自动merge state 参数(虽然这里不是koa-ejs...)
+const md = markdownIt({ html: true })
 let ejsHelper = {
   fromNow(data: any) {
     return moment(data).fromNow()
@@ -49,12 +50,17 @@ let ejsHelper = {
 
   githubAvatar(name: string) {
     return `https://github.com/${name}.png?size=80`
+  },
+
+  markdown(content: string) {
+    return md.render(content)
   }
 }
 
 // 全局模板变量
 appContext.fromNow = ejsHelper.fromNow
 appContext.githubAvatar = ejsHelper.githubAvatar
+appContext.markdown = ejsHelper.markdown
 appContext.$app = configs.$app
 
 // 模板目录
