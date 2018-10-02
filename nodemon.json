@@ -1,6 +1,6 @@
 {
   "verbose": false,
-  "watch": [ "app.ts", "routes/*.ts", "lib/*.ts", "models/*.ts", "configs/*.ts" ],
+  "watch": [ "app.ts", "routes/*.ts", "lib/*.ts", "models/*.ts", "configs/*.ts", "modules/*.ts" ],
   "ignore": ["*.jpe?g", "*.json", "*.html"],
   "ext": "ts",
   "execMap": {

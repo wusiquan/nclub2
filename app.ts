@@ -11,6 +11,7 @@ import * as debugModule from 'debug'
 // import * as koa404Handler from 'koa-404-handler'
 import * as session from 'koa-generic-session'
 import * as redisStore from 'koa-redis'
+// import * as passport from 'koa-passport'
 
 // import * as gravatar from 'gravatar'
 import * as moment from 'moment'
@@ -19,6 +20,7 @@ import * as markdownIt from 'markdown-it'
 import flash from './modules/flash'
 import router from './routes'
 import configs from './configs/default'
+import passport from './modules/auth'
 
 const debug = debugModule('nclub2')
 
@@ -78,6 +80,10 @@ app.use(session({
     password: redistConfig.password
   })
 }))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.use(flash())
 
 app

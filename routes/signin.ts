@@ -1,4 +1,5 @@
 import * as Koa from 'koa'
+import * as passport from 'koa-passport'
 import Models from '../lib/core'
 import { IFlashContext } from '../types/flash'
 
@@ -16,21 +17,32 @@ interface IRequestBody {
   password: string
 }
 
-export const post = async function(ctx: IFlashContext) {
-  let data = <IRequestBody>ctx.request.body
-
-  let userInfo: any = await $User.getUserByName(data.name)
+export const post = async (ctx: IFlashContext, next: any) => {
+  return passport.authenticate('local', {}, (err, user, info, status) => {
+    if (user) {
+      ctx.login(user)
+      ctx.flash = { success: '登陆成功' }
+      ctx.redirect('/user/' + user.name)
+    } else {
+      ctx.flash = { error: '用户名或密码错误!' }
+      return ctx.redirect('back')
+    }
+  })(ctx, next)
   
-  if (!userInfo || (userInfo.password !== data.password)) {
-    ctx.flash = { error: '用户名或密码错误!' }
-    return ctx.redirect('back')
-  }
+  // let data = <IRequestBody>ctx.request.body
 
-  ctx.session.user = {
-    name: userInfo.name,
-    email: userInfo.email
-  }
+  // let userInfo: any = await $User.getUserByName(data.name)
+  
+  // if (!userInfo || (userInfo.password !== data.password)) {
+  //   ctx.flash = { error: '用户名或密码错误!' }
+  //   return ctx.redirect('back')
+  // }
 
-  ctx.flash = { success: '登陆成功' }
-  ctx.redirect('/user/' + userInfo.name)
+  // ctx.session.user = {
+  //   name: userInfo.name,
+  //   email: userInfo.email
+  // }
+
+  // ctx.flash = { success: '登陆成功' }
+  // ctx.redirect('/user/' + userInfo.name)
 }
