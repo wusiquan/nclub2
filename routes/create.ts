@@ -5,7 +5,13 @@ const $Topic = Models.$Topic
 const $User = Models.$User
 
 // NOTE: 这个页面需要用户登陆
-export const get = async function(ctx: Koa.Context) {
+export const get = async function(ctx: any) {
+  if (!ctx.isAuthenticated()) {
+    ctx.flash = { error: '请登录' }
+    ctx.redirect('/signin')
+    return
+  }
+
   let name = ctx.session.user && ctx.session.user.name
   let userInfo = {}
   if (name) {

@@ -7,6 +7,12 @@ const $Comment = Models.$Comment
 
 // NOTE: 这个页面需要用户登陆
 export const get = async(ctx: any) => {
+  if (!ctx.isAuthenticated()) {
+    ctx.flash = { error: '请登录' }
+    ctx.redirect('/signin')
+    return
+  }
+  
   let id: Schema.Types.ObjectId = ctx.params.id
   const user = ctx.session.user
 

@@ -6,10 +6,14 @@ import { IFlashContext } from '../types/flash'
 let $User = Models.$User
 
 export const get = async function(ctx: Koa.Context) {
-  await ctx.render('signin', {
-    title: '登录页',
-    ctx: ctx
-  })
+  if (!ctx.isAuthenticated()) {
+    await ctx.render('signin', {
+      title: '登录页',
+      ctx: ctx
+    })
+  } else {
+    ctx.redirect('/')
+  }
 }
 
 interface IRequestBody {
@@ -21,6 +25,12 @@ export const post = async (ctx: IFlashContext, next: any) => {
   return passport.authenticate('local', {}, (err, user, info, status) => {
     if (user) {
       ctx.login(user)
+
+      ctx.session.user = {
+        name: user.name,
+        email: user.email
+      }
+
       ctx.flash = { success: '登陆成功' }
       ctx.redirect('/user/' + user.name)
     } else {
@@ -38,10 +48,7 @@ export const post = async (ctx: IFlashContext, next: any) => {
   //   return ctx.redirect('back')
   // }
 
-  // ctx.session.user = {
-  //   name: userInfo.name,
-  //   email: userInfo.email
-  // }
+  
 
   // ctx.flash = { success: '登陆成功' }
   // ctx.redirect('/user/' + userInfo.name)
