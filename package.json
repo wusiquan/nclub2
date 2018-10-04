@@ -5,6 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "start": "NODE_ENV=local nodemon app.ts",
+    "aa": "ts-node app.ts",
     "dev": "NODE_ENV=local DEBUG=nclub2 nodemon app.ts",
     "help": "nodemon -h"
   },
@@ -22,6 +23,7 @@
     "@types/moment": "^2.13.0",
     "@types/passport-local": "^1.0.33",
     "co-ejs": "^1.5.2",
+    "co-redis": "^2.1.1",
     "dayjs": "^1.7.7",
     "gravatar": "^1.6.0",
     "koa": "^2.5.3",
@@ -36,10 +38,12 @@
     "koa-router": "^7.4.0",
     "koa-static-cache": "^5.1.2",
     "koa-views": "^6.1.4",
+    "koa-redis-cache": "^3.0.2",
     "markdown-it": "^8.4.2",
     "moment": "^2.22.2",
     "mongoose": "^5.2.17",
     "passport-local": "^1.0.0",
+    "redis": "^2.8.0",
     "typescript": "^3.1.1"
   },
   "devDependencies": {
@@ -51,6 +55,7 @@
     "@types/koa-logger": "^3.1.0",
     "@types/koa-passport": "^4.0.2",
     "@types/koa-redis": "^3.0.2",
+    "@types/koa-redis-cache": "^3.0.0",
     "@types/koa-router": "^7.0.32",
     "@types/koa-static-cache": "^5.1.0",
     "@types/koa-views": "^2.0.3",

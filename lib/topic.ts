@@ -29,12 +29,12 @@ export const getTopicsByTab = (tab: string, pageNum: number) => {
 }
 
 // 通过id增加一个话题的评论数
-export const incCommentById = async(id: Schema.Types.ObjectId) => {
+export const incCommentById = (id: Schema.Types.ObjectId) => {
   return Topic.findByIdAndUpdate(id, {$inc: { comment: 1 }}).exec()
 }
 
 // 获取不同标签的话题数
-export const getTopicsCount = async(tab: string) => {
+export const getTopicsCount = (tab: string) => {
   let query: any = {}
   if (tab) { query.tab = tab }
   return Topic.countDocuments(query).exec()

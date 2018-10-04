@@ -11,6 +11,8 @@ import * as debugModule from 'debug'
 // import * as koa404Handler from 'koa-404-handler'
 import * as session from 'koa-generic-session'
 import * as redisStore from 'koa-redis'
+import * as cache from 'koa-redis-cache'
+
 // import * as passport from 'koa-passport'
 
 // import * as gravatar from 'gravatar'
@@ -71,6 +73,7 @@ app.use(views(__dirname + '/views', {
   extension: 'ejs'
 }))
 
+
 app.keys = ['$w_s_q$', 'iloveyou']
 const redistConfig = configs.redis
 app.use(session({
@@ -83,12 +86,34 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
-
 app.use(flash())
+
+
+const cacheOptions = <any>{
+  routes: [
+    {
+      path: '/',
+      expire: 30
+    },
+    {
+      path: '/user/:name',
+      expire: 60
+    }
+  ],
+  redis: {
+    host: redistConfig.host,
+    port: redistConfig.port,
+    options: {
+      password: redistConfig.password
+    }
+  }
+}
+app.use(cache(cacheOptions))
 
 app
   .use(router.routes())
   .use(router.allowedMethods())
+
 
 app.listen(configs.port)
 
