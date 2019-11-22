@@ -2,10 +2,8 @@
 
 ----- 更新于2018/10/01
 
-this repo is a simple demo for using Koa2  
-and its origin version(koa1) is written by [nswbmw](https://github.com/nswbmw/N-club)
+本例是使用Koa2的一个教学示例，选自《Node.js实战(第2季)》
+它最初的koa1版本地址 https://github.com/nswbmw/N-club
 
 mongoDB使用了[mbab](https://mlab.com/)  
 redis使用了[redislabs](https://redislabs.com/)
-
-感觉不用typescript会更省事(时间 + 精力)
